@@ -1,15 +1,26 @@
-import React, { FC } from "react";
-import ReactDOM from "react-dom";
-import { SiteCtxManager } from "../components/site-context";
-import { Pages } from "../components/pages";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { App } from "../components/app";
 import "./styles.scss";
+import {
+  ChakraProvider,
+  extendTheme,
+  type ThemeConfig,
+} from "@chakra-ui/react";
 
-const App: FC = () => {
-  return (
-    <SiteCtxManager>
-      <Pages />
-    </SiteCtxManager>
-  );
+const config: ThemeConfig = {
+  initialColorMode: "system",
+  useSystemColorMode: true,
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const theme = extendTheme({ config });
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement,
+);
+
+root.render(
+  <ChakraProvider theme={theme}>
+    <App />
+  </ChakraProvider>,
+);

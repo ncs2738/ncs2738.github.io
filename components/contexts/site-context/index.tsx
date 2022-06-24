@@ -14,10 +14,6 @@ interface PublicProps {
 }
 
 export const SiteContext = createContext({
-  darkTheme: true,
-  setDarkTheme: () => {
-    return;
-  },
   activePage: ActivePage.Landing,
   setActivePage: (newPage: ActivePage) => {
     return;
@@ -29,17 +25,12 @@ export const SiteContext = createContext({
 });
 
 export const SiteCtxManager: FC<PublicProps> = ({ children }) => {
-  const [theme, setTheme] = useState(true);
   const [openedPage, setOpenedPage] = useState(ActivePage.Landing);
   const [openedModal, setOpenedModal] = useState(ActiveModal.None);
 
   return (
     <SiteContext.Provider
       value={{
-        darkTheme: true,
-        setDarkTheme: () => {
-          setTheme(!theme);
-        },
         activePage: openedPage,
         setActivePage: (newPage: ActivePage) => {
           setOpenedPage(newPage);

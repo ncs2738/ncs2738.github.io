@@ -1,6 +1,206 @@
 $color: red;
+$color2: blue;
 
-*
-{
-    color: $color;
+.dark {
+  color: $color;
+}
+
+.light {
+  color: blue;
+}
+
+body.light {
+  background-color: rgb(131, 131, 131);
+}
+
+body.dark {
+  background-color: rgb(75, 75, 75);
+}
+
+.star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: rgb(0, 0, 0);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+  animation: animate 1s linear infinite;
+}
+
+.star::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-0%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(315deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-2000px);
+    opacity: 1;
+  }
+}
+
+.star:nth-child(1) {
+  top: 0;
+  right: 0;
+  left: initial;
+  animation-delay: 0;
+  animation-duration: 1s;
+}
+
+.star:nth-child(2) {
+  top: 0;
+  right: 80px;
+  left: initial;
+  animation-delay: 0.2s;
+  animation-duration: 3s;
+}
+
+.star:nth-child(3) {
+  top: 80px;
+  right: 0;
+  left: initial;
+  animation-delay: 0.4s;
+  animation-duration: 2s;
+}
+
+.star:nth-child(4) {
+  top: 0;
+  right: 180px;
+  left: initial;
+  animation-delay: 0.6s;
+  animation-duration: 1.5s;
+}
+
+.star:nth-child(5) {
+  top: 0;
+  right: 400px;
+  left: initial;
+  animation-delay: 0.8s;
+  animation-duration: 2.5s;
+}
+
+.star:nth-child(6) {
+  top: 0;
+  right: 600px;
+  left: initial;
+  animation-delay: 1s;
+  animation-duration: 3s;
+}
+
+.star:nth-child(7) {
+  top: 300px;
+  right: 0;
+  left: initial;
+  animation-delay: 1.2s;
+  animation-duration: 2.25s;
+}
+
+.star:nth-child(8) {
+  top: 0;
+  right: 700px;
+  left: initial;
+  animation-delay: 1.4s;
+  animation-duration: 1.25s;
+}
+
+.back {
+  background: rgb(2, 0, 36);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-size: 400% 400%;
+  animation: change 10s ease-in-out infinite;
+}
+
+@keyframes change {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.grad {
+  background: rgb(238, 119, 82);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(238, 119, 82, 1) 0%,
+    rgba(231, 60, 115, 1) 33%,
+    rgba(35, 166, 213, 1) 66%,
+    rgba(35, 213, 171, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(238, 119, 82, 1) 0%,
+    rgba(231, 60, 115, 1) 33%,
+    rgba(35, 166, 213, 1) 66%,
+    rgba(35, 213, 171, 1) 100%
+  );
+  background: linear-gradient(
+    -45deg,
+    rgba(238, 119, 82, 1) 0%,
+    rgba(231, 60, 115, 1) 33%,
+    rgba(35, 166, 213, 1) 66%,
+    rgba(35, 213, 171, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ee7752",endColorstr="#23d5ab",GradientType=1);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-size: 400% 400%;
+  animation: change 10s ease-in-out infinite;
+}
+
+.text {
+  background-color: white;
+  color: black;
+  font-size: 10vw; /* Responsive font size */
+  font-weight: bold;
+  margin: 0 auto; /* Center the text container */
+  padding: 10px;
+  width: 50%;
+  text-align: center; /* Center text */
+  position: absolute; /* Position text */
+  top: 50%; /* Position text in the middle */
+  left: 50%; /* Position text in the middle */
+  transform: translate(-50%, -50%); /* Position text in the middle */
+  mix-blend-mode: screen; /* This makes the cutout text possible */
+  //lineheight
+  //height
+  border: rgba(1, 1, 1, 1) 50px double;
 }
