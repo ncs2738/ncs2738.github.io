@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "target": "es5",
+    "sourceMap": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "removeComments": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "outDir": "./built"
+  },
+  "include": ["./**/*"],
+  "exclude": [
+    "./plugins/**/*",
+    "./typings/**/*",
+    "./built/**/*" // This is what fixed it!
+  ]
+}

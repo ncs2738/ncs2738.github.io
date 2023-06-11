@@ -1,0 +1,18 @@
+$color: red;
+$color2: blue;
+
+.dark {
+  color: $color;
+}
+
+.light {
+  color: blue;
+}
+
+body.light {
+  background-color: rgb(131, 131, 131);
+}
+
+body.dark {
+  background-color: rgb(75, 75, 75);
+}
