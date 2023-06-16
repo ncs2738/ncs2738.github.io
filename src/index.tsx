@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "../components/app";
 import "./styles.scss";
 import {
   ChakraProvider,
   extendTheme,
   type ThemeConfig,
 } from "@chakra-ui/react";
+import { App } from "./components/app";
 
 const config: ThemeConfig = {
   initialColorMode: "system",
