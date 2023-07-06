@@ -47,12 +47,12 @@ module.exports = {
               ]
           },
           {
+            test: /\.mp3$/,
+            type: 'asset/inline'
+        },
+          {
               test: /\.(png|jpe?g|gif)$/i,
-              use: [
-                  {
-                      loader: "file-loader"
-                  }
-              ]
+              type: 'asset/inline'
           },
           {
               test: /\.s[ac]ss$/i,
