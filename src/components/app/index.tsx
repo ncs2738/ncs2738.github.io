@@ -2,6 +2,7 @@ import { Box, Image, useColorMode } from "@chakra-ui/react";
 import * as React from "react";
 import { NameArray } from "../name-array";
 import { AudioPlayerCtxManager } from "../../assets/contexts/audio-player-ctx";
+import { ContactForm } from "../pages/contact-form";
 
 export const App = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,6 +37,7 @@ export const App = () => {
           <NameArray nameArray={nameArray} animationDelay={0} />
         </Box>
       </AudioPlayerCtxManager>
+      <ContactForm />
     </>
   );
 };

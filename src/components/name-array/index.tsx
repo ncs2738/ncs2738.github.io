@@ -38,6 +38,7 @@ export const NameArray: FunctionComponent<PublicProps> = ({
           char={char}
           letterID={i}
           animationDelay={0}
+          key={char + i}
         />
       ))}
     </span>

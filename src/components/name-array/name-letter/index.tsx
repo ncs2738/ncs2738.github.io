@@ -23,13 +23,11 @@ export const NameLetter: FunctionComponent<PublicProps> = ({
   const [play] = useSound(audioEffect, { volume: 0.5 });
 
   const playSound = () => {
-    console.log("all");
     play();
   };
 
   return (
     <Text
-      key={char + letterID}
       display="inline"
       onClick={playSound}
       //_hover={() => playSound(i)}
