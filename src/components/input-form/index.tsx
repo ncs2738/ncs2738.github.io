@@ -1,6 +1,5 @@
 import { FormControl, Input } from "@chakra-ui/react";
 import React, { FunctionComponent } from "react";
-import { useState } from "react";
 import { InputFormData } from "../pages/contact-form";
 
 interface PublicProps {
@@ -11,6 +10,8 @@ interface PublicProps {
   //
   formLabel: string;
   //
+  formName: string;
+  //
   inputType?: string;
 }
 
@@ -18,17 +19,26 @@ export const InputForm: FunctionComponent<PublicProps> = ({
   formValue,
   updateValue,
   formLabel,
+  formName,
   inputType,
 }) => {
   const isValid = formValue.formValue !== "";
-  const [isClean, setIsClean] = useState(true);
-  const isRequired = !isClean && !isValid;
+  const isRequired = !formValue.isClean && !isValid;
 
   const handleOnClick = () => {
-    if (isClean) setIsClean(false);
+    if (formValue.isClean)
+      updateValue({
+        formValue: formValue.formValue,
+        isValid: isValid,
+        isClean: false,
+      });
   };
   const handleInputChange = (e: { target: { value: any } }) =>
-    updateValue({ formValue: e.target.value, isValid: isValid });
+    updateValue({
+      formValue: e.target.value,
+      isValid: isValid,
+      isClean: formValue.isClean,
+    });
 
   return (
     <FormControl isInvalid={isRequired} isRequired={isRequired}>
@@ -39,6 +49,7 @@ export const InputForm: FunctionComponent<PublicProps> = ({
           onChange={handleInputChange}
           placeholder={formLabel}
           onClick={handleOnClick}
+          name={formName}
         />
       ) : (
         <Input
@@ -46,6 +57,7 @@ export const InputForm: FunctionComponent<PublicProps> = ({
           onChange={handleInputChange}
           placeholder={formLabel}
           onClick={handleOnClick}
+          name={formName}
         />
       )}
     </FormControl>
