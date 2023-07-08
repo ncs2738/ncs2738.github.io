@@ -1,13 +1,13 @@
 import { FormControl, Input } from "@chakra-ui/react";
 import React, { FunctionComponent } from "react";
 import { useState } from "react";
-import { FormData } from "../pages/contact-form";
+import { InputFormData } from "../pages/contact-form";
 
 interface PublicProps {
   //
-  formValue: FormData;
+  formValue: InputFormData;
   //
-  updateValue: (newVal: FormData) => void;
+  updateValue: (newVal: InputFormData) => void;
   //
   formLabel: string;
   //
